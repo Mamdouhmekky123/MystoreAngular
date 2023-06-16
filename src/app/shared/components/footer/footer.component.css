@@ -1,0 +1,86 @@
+.outerContainer {
+  font-family: 'poppins', sans-serif;
+}
+
+footer {
+  width: 100%;
+  background: #33B5E5;
+  color: #fff;
+  padding: 50px 10px 70px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.row {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.col {
+  flex-basis: 25%;
+  padding: 10px;
+}
+
+.col h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 12px;
+  padding-left: 0rem;
+
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+form {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+form input {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  border: 0;
+  outline: none;
+  margin-right: 20px;
+  padding: 10px 5px;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+form button {
+  background-color: aquamarine;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.social-icons img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
