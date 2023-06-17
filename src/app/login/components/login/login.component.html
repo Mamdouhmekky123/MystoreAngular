@@ -7,9 +7,15 @@
             <h3 class="pt-3 font-weight-bold">Login</h3>
           </div>
           <div class="panel-body p-3">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="form-group pt-3">
-                <div class="input-field">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    loginForm.controls['username'].dirty &&
+                    loginForm.hasError('required', 'username')
+                  "
+                >
                   <span class="fa fa-user p-2"></span>
                   <input
                     formControlName="username"
@@ -19,9 +25,22 @@
                   />
                 </div>
               </div>
-              <small class="text-danger">*Username is required*</small>
+              <small
+                *ngIf="
+                  loginForm.controls['username'].dirty &&
+                  loginForm.hasError('required', 'username')
+                "
+                class="text-danger"
+                >*Username is required*</small
+              >
               <div class="form-group pt-3">
-                <div class="input-field">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    loginForm.controls['password'].dirty &&
+                    loginForm.hasError('required', 'password')
+                  "
+                >
                   <span class="fa fa-lock px-2"></span>
                   <input
                     [type]="type"
@@ -36,7 +55,14 @@
                   </button>
                 </div>
               </div>
-              <small class="text-danger">*Password is required*</small>
+              <small
+                *ngIf="
+                  loginForm.controls['password'].dirty &&
+                  loginForm.hasError('required', 'password')
+                "
+                class="text-danger"
+                >*Password is required*</small
+              >
               <div class="form-inline fr mt-4">
                 <a
                   id="forgot"

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { NgToastModule } from 'ng-angular-popup';
 
 
 
@@ -12,10 +14,13 @@ import { RouterModule } from '@angular/router';
     SignupComponent
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],exports:[
     LoginComponent,
-    SignupComponent
+    SignupComponent,
   ]
 })
 export class LoginModule { }
