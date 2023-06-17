@@ -16,7 +16,7 @@ ul {
   display: flex;
   justify-content: space-between;
   width: 20%;
-  margin: 0;
+  margin-right: 50%;
 }
 
 li {

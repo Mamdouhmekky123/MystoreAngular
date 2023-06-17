@@ -87,4 +87,8 @@ export class ProductlistComponent {
       }
     );
   }
+
+  addingToChart(event:any){
+    this.service2.addToChart(event);   
+  }
 }

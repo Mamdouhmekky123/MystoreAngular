@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { CategoryComponent } from './components/category/category.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
   declarations: [

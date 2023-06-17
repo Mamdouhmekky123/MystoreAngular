@@ -7,6 +7,8 @@ import { ProductdetailsComponent } from './products/components/productdetails/pr
 import { AboutComponent } from './pages/components/about/about.component';
 import { HomeComponent } from './pages/components/home/home.component';
 import { ChatComponent } from './chatbot/components/chat/chat.component';
+import { LoginComponent } from './login/components/login/login.component';
+import { SignupComponent } from './login/components/signup/signup.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductlistComponent },
@@ -15,11 +17,13 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'chatbot', component: ChatComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   {
     path: 'order-confirmation/:username',
     component: OrderComponent,
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

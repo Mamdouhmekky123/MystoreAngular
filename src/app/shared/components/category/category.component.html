@@ -1,1 +1,12 @@
-<p>category works!</p>
+<div class="mb-5 my-2 w-25">
+  <label for="" class="my-1">{{title}}</label>
+  <select class="form-conntrol" (change)="detectChanges($event)">
+    <option value="all" selected>All</option>
+    <option
+      *ngFor="let item of data; let i = index"
+      value="{{ item.Id }}"
+    >
+      {{ item.Name }}
+    </option>
+  </select>
+</div>

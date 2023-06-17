@@ -4,6 +4,8 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { SingleproductComponent } from './components/singleproduct/singleproduct.component';
 import { SharedModule } from './../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { SharedModule } from './../shared/shared.module';
   ],
   imports: [
   CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule,
+    FormsModule
 
   ],
   exports:[
