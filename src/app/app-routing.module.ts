@@ -6,6 +6,7 @@ import { ProductlistComponent } from './products/components/productlist/productl
 import { ProductdetailsComponent } from './products/components/productdetails/productdetails.component';
 import { AboutComponent } from './pages/components/about/about.component';
 import { HomeComponent } from './pages/components/home/home.component';
+import { ChatComponent } from './chatbot/components/chat/chat.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductlistComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'details/:id', component: ProductdetailsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'chatbot', component: ChatComponent },
   {
     path: 'order-confirmation/:username',
     component: OrderComponent,

@@ -9,7 +9,23 @@ export class ProductService {
   amountFromDetais!: number;
   getAllProducts() {
     return this.http.get(
-      'http://18.159.111.193/api/Product?PageNumber=1&PageSize=20&FieldsToExclude=Features'
+      'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'
+    );
+  }
+  getAllProductsByPages(pageNum:string) {
+    return this.http.get(
+      'http://18.159.111.193/api/Product?PageNumber=' + pageNum +'&PageSize=30&FieldsToExclude=Features'
+    );
+  }
+  getProductCtegories() {
+    return this.http.get(
+      'http://18.159.111.193/api/ProductCategory/ProductCategories?PageNumber=1&PageSize=50'
+    );
+  }
+  getProductByCtegories(keyward: string) {
+    return this.http.get(
+      'http://18.159.111.193/api/Product?PageNumber=1&PageSize=20&FieldsToExclude=Features&ProductCategoryIds=' +
+        keyward
     );
   }
 }
