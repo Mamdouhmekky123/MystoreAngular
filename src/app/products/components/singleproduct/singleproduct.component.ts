@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class SingleproductComponent {
 @Input() data:any=[];
 @Output() item=new EventEmitter;
+addQuantity:boolean=false;
 amount:number=1;
 add(){
   this.item.emit({item :this.data , quantity:this.amount});

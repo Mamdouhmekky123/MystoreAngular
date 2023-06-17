@@ -12,9 +12,11 @@ export class ProductService {
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'
     );
   }
-  getAllProductsByPages(pageNum:string) {
+  getAllProductsByPages(pageNum: string) {
     return this.http.get(
-      'http://18.159.111.193/api/Product?PageNumber=' + pageNum +'&PageSize=30&FieldsToExclude=Features'
+      'http://18.159.111.193/api/Product?PageNumber=' +
+        pageNum +
+        '&PageSize=30&FieldsToExclude=Features'
     );
   }
   getProductCtegories() {
@@ -27,5 +29,9 @@ export class ProductService {
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=20&FieldsToExclude=Features&ProductCategoryIds=' +
         keyward
     );
+  }
+
+  getProductById(id: any) {
+    return this.http.get('https://localhost:7185/api/Product/'+id);
   }
 }

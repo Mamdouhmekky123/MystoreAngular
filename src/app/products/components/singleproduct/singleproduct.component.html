@@ -1,7 +1,9 @@
 <div class="item">
-  <img src="{{ data.HighResImageURLs }}" alt="" />
-  <div class="body">
-    <h4>{{ data.Title }}</h4>
+  <div routerLink="/details/{{data.Id}}">
+    <img src="{{ data.HighResImageURLs }}" alt="" />
+    <div class="body">
+      <h4>{{ data.Title}}</h4>
+    </div>
   </div>
   <div class="px-3 mb-4 d-flex justify-content-between align-items-center">
     <div class="handle">
