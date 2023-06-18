@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import ValidateForm from '../../helpers/validationform';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,14 +15,18 @@ export class SignupComponent {
   isText: boolean = false;
   eyeIcon: string = 'fa-eye-slash';
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router,private auth: AuthService) {}
   ngOnInit() {
     this.signUpForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      userName: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      "firstName": ['', Validators.required],
+      "lastName": ['', Validators.required],
+      "userName": ['', Validators.required],
+      "gender":0,
+      // "birthdate": this.getCurrentDate(),
+      "phoneNumber": ['', Validators.required],
+      "email": ['', Validators.required],
+      "role":0,
+      "password": ['', Validators.required],
     });
   }
   hideShowPass() {
@@ -29,28 +34,33 @@ export class SignupComponent {
     this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
     this.isText ? (this.type = 'text') : (this.type = 'password');
   }
-  onSubmit() {
+  onSignup() {
     if (this.signUpForm.valid) {
       console.log(this.signUpForm.value);
-      // let signUpObj = {
-      //   ...this.signUpForm.value,
-      //   role:'',
-      //   token:''
-      // }
-      // this.auth.signUp(signUpObj)
+      let signUpObj = {
+        ...this.signUpForm.value,
+        role:'',
+        token:''
+      }
+      this.auth.signUp(signUpObj)
+      this.auth.signUp(this.signUpForm.value)
       // .subscribe({
       //   next:(res=>{
       //     console.log(res.message);
       //     this.signUpForm.reset();
       //     this.router.navigate(['login']);
-      //     alert(res.message)
+
       //   }),
       //   error:(err=>{
-      //     alert(err?.error.message)
+      //  alert(err.message)
       //   })
       // })
     } else {
       ValidateForm.validateAllFormFields(this.signUpForm); //{7}
     }
+  }
+   getCurrentDate(): string {
+    const date = new Date();
+    return date.toISOString();
   }
 }

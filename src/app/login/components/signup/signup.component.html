@@ -7,7 +7,7 @@
             <h3 class="pt-3 font-weight-bold">Sign Up</h3>
           </div>
           <div class="panel-body p-3">
-            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSignup()">
               <div class="form-group pt-3">
                 <div
                   class="input-field"
@@ -55,6 +55,30 @@
                 "
                 class="text-danger"
                 >*Last Name is required*</small
+              >
+              <div class="form-group pt-3">
+                <div
+                  class="input-field"
+                  [class.error]="
+                    signUpForm.controls['phoneNumber'].dirty &&
+                    signUpForm.hasError('required', 'phoneNumber')
+                  "
+                >
+                  <span class="fa fa-user p-2"></span>
+                  <input
+                    formControlName="phoneNumber"
+                    type="text"
+                    placeholder="Phone Number"
+                  />
+                </div>
+              </div>
+              <small
+                *ngIf="
+                  signUpForm.controls['phoneNumber'].dirty &&
+                  signUpForm.hasError('required', 'phoneNumber')
+                "
+                class="text-danger"
+                >*Phone Numberis required*</small
               >
               <div class="form-group pt-3">
                 <div
@@ -135,6 +159,44 @@
                 class="text-danger"
                 >*Password is required*</small
               >
+              <!-- <div
+                class="rad"
+                formControlName="gender"
+                aria-label="Select an option"
+              >
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio1"
+                    value="0"
+                  />
+                  <label class="form-check-label" for="inlineRadio1"
+                    >male</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio2"
+                    value="1"
+                  />
+                  <label class="form-check-label" for="inlineRadio2"
+                    >female</label
+                  >
+                </div>
+                <small
+                *ngIf="
+                  signUpForm.controls['gender'].dirty &&
+                  signUpForm.hasError('required', 'gender')
+                "
+                class="text-danger"
+                >*gender is required*</small
+              >
+              </div> -->
 
               <button
                 type="submit"
