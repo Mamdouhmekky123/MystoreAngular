@@ -90,6 +90,10 @@
   left: 0;
 }
 
+.btn-next {
+  right: 0;
+}
+
 .icon-carousel {
   color: #fff;
   opacity: 0.5;
@@ -104,6 +108,7 @@
   opacity: 0.5;
 }
 
+.icon-next,
 .icon-prev {
   font-size: 35px;
 }

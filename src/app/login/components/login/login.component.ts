@@ -20,7 +20,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthService,
-    private toast: NgToastService,
+    private toast: NgToastService
   ) {}
 
   ngOnInit() {
@@ -50,18 +50,26 @@ export class LoginComponent {
         .subscribe({
           next: (res) => {
             console.log(res);
-                this.loginForm.reset();
-                localStorage.setItem('token', res.token);
+            this.loginForm.reset();
+            localStorage.setItem('token', res.token);
             //     this.auth.storeToken(res.accessToken);
             //     this.auth.storeRefreshToken(res.refreshToken);
             //     const tokenPayload = this.auth.decodedToken();
             //     this.userStore.setFullNameForStore(tokenPayload.name);
             //     this.userStore.setRoleForStore(tokenPayload.role);
-                this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
-               this.router.navigate(['/'])
+            this.toast.success({
+              detail: 'SUCCESS',
+              summary: 'Login Successfully ',
+              duration: 5000,
+            });
+            this.router.navigate(['/']);
           },
           error: (err) => {
-            // this.toast.error({detail:"ERROR", summary:"Something when wrong!", duration: 5000});
+            this.toast.error({
+              detail: 'ERROR',
+              summary: err.error,
+              duration: 5000,
+            });
             console.log(err);
           },
         });

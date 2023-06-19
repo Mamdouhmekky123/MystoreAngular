@@ -5,7 +5,6 @@
       [src]="image.imageSrc"
       [alt]="image.imageAlt"
       [ngClass]="{ 'image-active': selectIndex === i }"
-      
     />
 
     <div *ngIf="indicator" class="carousel-dot-container">
@@ -17,8 +16,17 @@
       >
       </span>
     </div>
-    <div *ngIf="controls" class="btn-carousel btn-prev">
-        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"></i>
-    </div>
+    <button *ngIf="controls" class="btn-carousel btn-prev">
+      <i
+        class="fas fa-arrow-circle-left icon-carousel icon-prev"
+        (click)="onPrevClick()"
+      ></i>
+    </button>
+    <button *ngIf="controls" class="btn-carousel btn-next">
+      <i
+        class="fas fa-arrow-circle-right icon-carousel icon-next"
+        (click)="onNextClick()"
+      ></i>
+    </button>
   </div>
 </div>
