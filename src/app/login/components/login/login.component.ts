@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import ValidateForm from '../../helpers/validationform';
 import { AuthService } from '../../services/auth.service';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +19,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private toast: NgToastService,
   ) {}
 
   ngOnInit() {
@@ -55,7 +57,7 @@ export class LoginComponent {
             //     const tokenPayload = this.auth.decodedToken();
             //     this.userStore.setFullNameForStore(tokenPayload.name);
             //     this.userStore.setRoleForStore(tokenPayload.role);
-            //     this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
+                this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
                this.router.navigate(['/'])
           },
           error: (err) => {
