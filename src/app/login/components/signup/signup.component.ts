@@ -15,18 +15,22 @@ export class SignupComponent {
   isText: boolean = false;
   eyeIcon: string = 'fa-eye-slash';
 
-  constructor(private fb: FormBuilder, private router: Router,private auth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private auth: AuthService
+  ) {}
   ngOnInit() {
     this.signUpForm = this.fb.group({
-      "firstName": ['', Validators.required],
-      "lastName": ['', Validators.required],
-      "userName": ['', Validators.required],
-      "gender":0,
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      userName: ['', Validators.required],
+      gender: 0,
       // "birthdate": this.getCurrentDate(),
-      "phoneNumber": ['', Validators.required],
-      "email": ['', Validators.required],
-      "role":0,
-      "password": ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
+      role: 0,
+      password: ['', Validators.required],
     });
   }
   hideShowPass() {
@@ -39,28 +43,32 @@ export class SignupComponent {
       console.log(this.signUpForm.value);
       let signUpObj = {
         ...this.signUpForm.value,
-        role:'',
-        token:''
-      }
-      this.auth.signUp(signUpObj)
-      this.auth.signUp(this.signUpForm.value)
-      // .subscribe({
-      //   next:(res=>{
-      //     console.log(res.message);
-      //     this.signUpForm.reset();
-      //     this.router.navigate(['login']);
-
-      //   }),
-      //   error:(err=>{
-      //  alert(err.message)
-      //   })
-      // })
+        role: '',
+        token: '',
+      };
+      this.auth.signUp(signUpObj);
+      this.auth.signUp(this.signUpForm.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          alert("Registered Successfully")
+          this.signUpForm.reset();
+          this.router.navigate(['login']);
+        },
+        error: (err) => {
+          alert(err.error);
+        },
+      });
     } else {
       ValidateForm.validateAllFormFields(this.signUpForm); //{7}
     }
   }
-   getCurrentDate(): string {
+  getCurrentDate(): string {
     const date = new Date();
     return date.toISOString();
+  }
+  geAllOrders() {
+    this.auth.getOrder().subscribe((res: any) => {
+      console.log(res);
+    });
   }
 }

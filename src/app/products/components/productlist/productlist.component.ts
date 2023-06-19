@@ -8,21 +8,43 @@ import { ProductService } from './../../services/product.service';
 })
 export class ProductlistComponent {
   products: any = []; //بعمل ارراي  عشان استقبل فيه ال داتا
+  filteredProducts: any = [];
   categories: any = [];
   loading: boolean = false;
   Allpropage: boolean = true;
   cartData: any[] = []; //intermediate channel between local storage and items in product-list component
+  searchText:String="";
   constructor(private service: ProductService, private service2: CartService) {}
 
   ngOnInit(): void {
     this.getProducts();
     this.getCtegories();
   }
+
+
+  /************** filter products ********************/
+  private _listFilter: string = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    console.log('In setter:', value);
+    this.filteredProducts = this.performFilter(value);
+  }
+  performFilter(filterBy: string):any {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: any) =>
+      product.productName.toLocaleLowerCase().includes(filterBy));
+  }
+
+
   getProducts() {
     this.loading = true;
     this.service.getAllProducts().subscribe(
       (res: any) => {
         this.products = res;
+        this.filteredProducts = this.products;
         this.loading = false;
       },
       (error) => {
@@ -91,4 +113,10 @@ export class ProductlistComponent {
   addingToChart(event:any){
     this.service2.addToChart(event);   
   }
+
+  onSearchTextEntered(searchValue:String){
+    this.searchText=searchValue;
+    console.log(this.searchText);
+  }
+
 }

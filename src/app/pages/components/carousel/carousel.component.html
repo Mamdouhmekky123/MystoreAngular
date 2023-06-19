@@ -5,9 +5,9 @@
       [src]="image.imageSrc"
       [alt]="image.imageAlt"
       [ngClass]="{ 'image-active': selectIndex === i }"
-      class="fade"
+      
     />
-    
+
     <div *ngIf="indicator" class="carousel-dot-container">
       <span
         *ngFor="let dot of images; let i = index"
@@ -17,7 +17,8 @@
       >
       </span>
     </div>
+    <div *ngIf="controls" class="btn-carousel btn-prev">
+        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"></i>
+    </div>
   </div>
-
-
 </div>

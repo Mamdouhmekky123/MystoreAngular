@@ -1,0 +1,30 @@
+.search-div {
+  margin: 3px 10px 20px;
+  padding: 10px 20px;
+  background-color: #33B5E5;
+  opacity: .5;
+  width: 780px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.changeBackGroundColor {
+  background-color: #33B5E5;
+
+}
+
+span {
+  font-weight: bolder;
+  color: black;
+  opacity: 1;
+  font-size: 40px;
+}
+
+input[type=text] {
+  width: 700px;
+  height: 30px;
+  margin-left: 20px;
+  border: 1px;
+  border-radius: 10px;
+  font-size: 20px;
+}

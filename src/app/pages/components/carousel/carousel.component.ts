@@ -12,7 +12,7 @@ interface carouselImage {
 export class CarouselComponent implements OnInit {
   @Input() images: carouselImage[] = [];
   @Input() indicator: boolean = true;
-  @Input() control: boolean = true;
+  @Input() controls: boolean = true;
   selectIndex = 0;
   ngOnInit(): void {}
   selectImage(index: number) {

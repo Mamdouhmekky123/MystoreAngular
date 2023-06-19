@@ -47,15 +47,16 @@ export class LoginComponent {
         )
         .subscribe({
           next: (res) => {
-            console.log(res.message);
-            //     this.loginForm.reset();
+            console.log(res);
+                this.loginForm.reset();
+                localStorage.setItem('token', res.token);
             //     this.auth.storeToken(res.accessToken);
             //     this.auth.storeRefreshToken(res.refreshToken);
             //     const tokenPayload = this.auth.decodedToken();
             //     this.userStore.setFullNameForStore(tokenPayload.name);
             //     this.userStore.setRoleForStore(tokenPayload.role);
             //     this.toast.success({detail:"SUCCESS", summary:res.message, duration: 5000});
-            //     this.router.navigate(['dashboard'])
+               this.router.navigate(['/'])
           },
           error: (err) => {
             // this.toast.error({detail:"ERROR", summary:"Something when wrong!", duration: 5000});

@@ -6,13 +6,15 @@ import { SingleproductComponent } from './components/singleproduct/singleproduct
 import { SharedModule } from './../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
   declarations: [
     ProductlistComponent,
     ProductdetailsComponent,
-    SingleproductComponent
+    SingleproductComponent,
+    SearchComponent
   ],
   imports: [
   CommonModule,
@@ -24,7 +26,8 @@ import { FormsModule } from '@angular/forms';
   exports:[
   ProductlistComponent,
   ProductdetailsComponent,
-  SingleproductComponent
+  SingleproductComponent,
+  SearchComponent
   ]
 })
 export class ProductsModule { }
