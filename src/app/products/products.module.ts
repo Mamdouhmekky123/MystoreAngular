@@ -5,29 +5,35 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { SingleproductComponent } from './components/singleproduct/singleproduct.component';
 import { SharedModule } from './../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
-
+import { CommentsModule } from '../comments/comments.module';
+import { RatingComponent } from './components/rating/rating.component';
+import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     ProductlistComponent,
     ProductdetailsComponent,
     SingleproductComponent,
-    SearchComponent
+    SearchComponent,
+    RatingComponent,
   ],
   imports: [
-  CommonModule,
+    CommonModule,
     SharedModule,
     RouterModule,
-    FormsModule
-
+    FormsModule,
+    CommentsModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
-  exports:[
-  ProductlistComponent,
-  ProductdetailsComponent,
-  SingleproductComponent,
-  SearchComponent
-  ]
+  exports: [
+    ProductlistComponent,
+    ProductdetailsComponent,
+    SingleproductComponent,
+    SearchComponent,
+    RatingComponent,
+  ],
 })
-export class ProductsModule { }
+export class ProductsModule {}

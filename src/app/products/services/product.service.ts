@@ -32,6 +32,14 @@ export class ProductService {
   }
 
   getProductById(id: any) {
-    return this.http.get('https://localhost:7185/api/Product/'+id);
+    return this.http.get(
+      'http://18.159.111.193/api/Product/' + id + '?FieldsToExclude=Features'
+    );
   }
+  // getRateProductById(id: any) {
+  //   return this.http.get(
+  //     'http://18.159.111.193/api/Rating/' + id
+  //   );
+  // }
 }
+

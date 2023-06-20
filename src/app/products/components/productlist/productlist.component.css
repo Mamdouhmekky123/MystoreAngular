@@ -1,6 +1,4 @@
-
-
-.numbers{
+.numbers {
   margin-top: 100px;
 }
 
@@ -20,7 +18,7 @@
   margin-left: 2rem;
   display: inline-block;
   background-color: rgb(155, 100, 237);
-  width:30px;
+  width: 30px;
   border-radius: 10px;
   cursor: pointer;
 }

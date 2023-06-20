@@ -11,6 +11,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductdetailsComponent {
   id!: any;
+  AllRates: any = [];
   allProducts: any[] = [];
   productData: any = {
     Brand: {
@@ -45,8 +46,7 @@ export class ProductdetailsComponent {
     ],
     Title:
       'Magnetic Poetry - Little Box of Sin Kit - Words for Refrigerator - Write Poems and Letters on The Fridge - Made in The USA',
-    Description:
-      "<b>The Magnetic Poetry Story</b><br><br>Dave Kapell, founder of Magnetic Poetry, was suffering from writer's block while trying to compose song lyrics. To overcome this problem, he wrote down interesting words on pieces of paper and rearranged them, looking for inspiration. What he hadn't figured into this experiment was his allergies. One good sneeze and any progress was sent flying across the room. Dave decided to glue the words to pieces of magnets and stick them to a pizza tin. Then he got hungry and the now magnetized words made their way to the refrigerator door. Before too long, Dave wasn't the only one rearranging his would-be song lyrics. When friends came over, Dave noticed they started to move the magnets around, amusing themselves by writing the first magnetic poems. <br><br> After seeing his friends having fun, Dave thought he might be able to sell his word kits at a local craft fair. He made up 100 kits and set up shop at Calhoun Square, a mall in the Uptown area of Minneapolis. All 100 kits were gone after 3 hours. That night, he recruited as many friends as pizza and beer could draw and made up more kits--all of which sold as rapidly the next day. <br><br> From these beginnings, Magnetic Poetry has now sold over three million word kits, over one billion word tiles--growing from the Original Kit to a kid's line of kits, to foreign language kits, to Voice/theme kits.",
+    Description: '<b>The Magnetic Poetry Story</b><br><br>Dave Kapell',
     Price: 847.16,
     Discount: 0.0,
     Features:
@@ -81,6 +81,18 @@ export class ProductdetailsComponent {
       }
     ); //subscrib ----> observable object  قناة بتعبر من خلالها الداتا من الباك للفرونت
   }
+  /********* get rates***********/
+  // getRateOfProduct(){
+  //   this.service.getRateProductById(this.id).subscribe(
+  //     (res: any) => {
+  //       this.AllRates = res;
+  //       console.log(this.AllRates);
+  //     },
+  //     (error) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
 
   // add prouct to the cart using  local storage
   addToChart() {

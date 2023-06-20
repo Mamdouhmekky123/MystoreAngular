@@ -1,1 +1,65 @@
-<p>cart works!</p>
+<div class="big">
+  <div class="cartBox">
+    <h1 class="text-info">Shopping Cart</h1>
+    <div class="headCart">
+      <p class="lead">
+        You have
+        <label for="" class="text-danger"> [{{ cartProducts.length }}] </label>
+        products and the total number of items is
+        <label for="" class="text-danger"> [{{ totalItems }}] </label>
+      </p>
+      <span class="text-danger cart-header" (click)="clearData()"
+        >Clear shopping Cart</span
+      >
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Price</th>
+          <th style="width: 25%">Quantity</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartProducts; let index = index">
+          <td><img src="{{ item.item.HighResImageURLs }}" alt="" /></td>
+          <td>{{ item.item.Title }}</td>
+          <td>{{ item.item.Price }} $</td>
+          <td>
+            <div class="quantity">
+              <button class="btn btn-dark" (click)="plus(index)">+</button>
+              <input
+                type="number"
+                class="form-contol"
+                (change)="detectChange(index)"
+                [(ngModel)]="item.quantity"
+                min="1"
+              />
+              <button class="btn btn-dark" (click)="minus(index)">-</button>
+            </div>
+          </td>
+
+          <td>
+            <button class="btn btn-danger" (click)="deleteItem(index)">
+              Delete
+            </button>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Total : $ {{ total }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <app-form></app-form>
+</div>

@@ -10,6 +10,8 @@ import { PagesModule } from './pages/pages.module';
 import { LoginModule } from './login/login.module';
 import { TokenInterceptor } from './login/interceptors/token.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
+import { CommentsModule } from './comments/comments.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,9 @@ import { NgToastModule } from 'ng-angular-popup';
     PagesModule,
     HttpClientModule,
     LoginModule,
-    NgToastModule
+    NgToastModule,
+    CommentsModule,
+    NgbModule
   ],
 })
 export class AppModule {}
