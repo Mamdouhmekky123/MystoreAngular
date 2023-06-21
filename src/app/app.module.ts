@@ -12,6 +12,7 @@ import { TokenInterceptor } from './login/interceptors/token.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
 import { CommentsModule } from './comments/comments.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WishlistModule } from './wishlist/wishlist.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginModule,
     NgToastModule,
     CommentsModule,
-    NgbModule
+    NgbModule,
+    WishlistModule
   ],
 })
 export class AppModule {}

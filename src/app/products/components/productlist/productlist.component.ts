@@ -119,4 +119,6 @@ export class ProductlistComponent {
     console.log(this.searchText);
   }
 
+
+
 }

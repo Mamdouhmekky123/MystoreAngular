@@ -1,1 +1,21 @@
 <app-carousel [images]="Allimages" [autoSlide]="true"></app-carousel>
+
+<div class="btton">
+  <a target="_blank" href="http://localhost:4200/assets/index.html">
+    <button class="btn btn-primary">Know More About Us</button>
+  </a>
+</div>
+
+<h1 class="Title">Most Popular</h1>
+<div class="bord">
+  <div class="mt-30">
+    <div class="row">
+      <div class="col-md-4 col-sm-12" *ngFor="let item of products">
+        <app-singleproduct
+          [data]="item"
+          (item)="addingToChart($event)"
+        ></app-singleproduct>
+      </div>
+    </div>
+  </div>
+</div>

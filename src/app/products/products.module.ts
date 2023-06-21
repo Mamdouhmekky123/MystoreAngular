@@ -26,7 +26,7 @@ import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     CommentsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     ProductlistComponent,

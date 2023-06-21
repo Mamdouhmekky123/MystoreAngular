@@ -1,0 +1,64 @@
+<div class="big">
+  <div class="cartBox">
+    <h1 class="text-info">Whishlist</h1>
+    <div class="headCart">
+      <p class="lead">
+        You have
+        <label for="" class="text-danger"> [{{ wishProducts.length }}] </label>
+        products 
+        <!-- and the total number of items is
+        <label for="" class="text-danger"> [{{ totalItems }}] </label> -->
+      </p>
+      <span class="text-danger cart-header" (click)="clearData()"
+        >Clear whishlist </span
+      >
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Price</th>
+          <!-- <th style="width: 25%">Quantity</th> -->
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of wishProducts; let index = index">
+          <td><img src="{{ item.item.HighResImageURLs }}" alt="" routerLink="/details/{{item.item.Id}}"/></td>
+          <td>{{ item.item.Title }}</td>
+          <td>{{ item.item.Price }} $</td>
+          <!-- <td>
+            console.log(          <td>
+            <button class="btn btn-primary" (click)="addToChart()">
+              Add to cart
+            </button>
+          </td>
+          <td></td>)
+            <button class="btn btn-primary" (click)="addToChart()">
+              Add to cart
+            </button>
+          </td>
+          <td></td> -->
+
+          <td>
+            <button class="btn btn-danger" (click)="deleteItem(index)">
+              Delete
+            </button>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <!-- <th>Total : $ {{ total }}</th> -->
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

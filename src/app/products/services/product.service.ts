@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   constructor(private http: HttpClient) {}
   amountFromDetais!: number;
+  reviews:any=[];
   getAllProducts() {
     return this.http.get(
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'
@@ -41,5 +42,16 @@ export class ProductService {
   //     'http://18.159.111.193/api/Rating/' + id
   //   );
   // }
-}
 
+  getMostPopular() {
+    return this.http.get(
+      'http://18.159.111.193/api/Product?PageNumber=2&PageSize=6&FieldsToExclude=Features%2CDescription&orderBy=-VoteCount'
+    );
+  }
+
+  getProductReviews(id: any){
+    return this.http.get(
+      'http://18.159.111.193/api/Review?productId=' + id + '&PageNumber=1&PageSize=10'
+    );
+  }
+}

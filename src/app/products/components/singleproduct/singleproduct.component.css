@@ -70,3 +70,8 @@ img {
   background-color: rgb(30, 210, 84);
   border-radius: 10px;
 }
+
+button {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}

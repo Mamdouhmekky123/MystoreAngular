@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/components/home/home.component';
 import { ChatComponent } from './chatbot/components/chat/chat.component';
 import { LoginComponent } from './login/components/login/login.component';
 import { SignupComponent } from './login/components/signup/signup.component';
+import { WishlistComponent } from './wishlist/components/wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductlistComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'chatbot', component: ChatComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'Wishlist', component: WishlistComponent },
   { path: 'signup', component: SignupComponent },
   {
     path: 'order-confirmation/:username',

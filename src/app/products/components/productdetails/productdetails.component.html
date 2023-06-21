@@ -15,8 +15,8 @@
         </ul>
         <div class="inputQuantity">
           <input type="number" name="" class="in" [(ngModel)]="amount" />
-          <button class="btn btn-primary" routerLink="/">
-            <<----Back to Product list
+          <button class="btn btn-warning" (click)="addToWishlist()">
+            Add to wishlist
           </button>
           <button class="btn btn-primary" (click)="addToChart()">
             Add to cart
@@ -26,7 +26,12 @@
     </div>
   </div>
 </div>
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="!loading">
 <br /><br /><br /><br />
 <app-rating></app-rating>
 <br /><br /><br /><br />
 <app-comments currentUserId="1"></app-comments>
+</div>

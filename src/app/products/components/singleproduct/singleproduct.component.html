@@ -15,8 +15,11 @@
           (ngModelChange)="amount = $event"
         />
         <!-- I have to add formModule in products formModule -->
+        <div class="inl">
         <button class="btn btn-primary" (click)="add()">Add to cart</button>
+        <button class="btn btn-warning" (click)="addToWish()">Add to wishlist</button>
       </div>
+    </div>
       <div class="price">price: {{ data.Price }} $</div>
     </div>
   </div>
