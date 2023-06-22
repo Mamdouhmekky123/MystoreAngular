@@ -1,0 +1,60 @@
+<!-- <div *ngFor="let item of [1,2,3,4,5,6]">
+<p>Number is: {{item}}</p>
+</div> -->
+
+<div>
+  <app-filter
+    [Total]="getTotalNumberOfProducts()"
+    [above400]="getTotalNumberOfHighPriceProduct()"
+    [below400]="getTotalNumberOfLowPriceProduct()"
+    (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)"
+  ></app-filter>
+</div>
+
+<ng-container *ngFor="let p of filteredProducts; let i = index">
+  <div>
+    <p>{{ i }}</p>
+    <div
+      class="product-container"
+      [ngStyle]="{ backgroundColor: p.VoteAverage >= 3.5 ? ' #aaa' : '#832' }"
+    >
+      <div class="image-container">
+        <img
+          [src]="p.HighResImageURLs"
+          alt=""
+          style="max-width: 50px; max-height: 50px"
+        />
+      </div>
+      <div>
+        <div class="name-container">
+          <h6>{{ p.Title }}</h6>
+        </div>
+        <div class="detailContainer">
+          <div class="details">{{ p.Brand.Name }}</div>
+          <div class="details">
+            <b>Price: {{ p.Price }}</b>
+          </div>
+          <div class="details">
+            <b> VoteAverage: </b>
+            <b [ngStyle]="{ color: p.VoteAverage >= 3.5 ? 'Green' : 'red' }">{{
+              p.VoteAverage
+            }}</b>
+          </div>
+          <p
+            style="color: blueviolet"
+            *ngIf="p.VoteAverage < 3.5; else highRate"
+          >
+            low rate
+          </p>
+          <ng-template #highRate>
+            <p style="color: rgb(18, 104, 18)">high rate</p>
+          </ng-template>
+        </div>
+      </div>
+      <div class="options">
+        <button class="btn btn-success">show Detailes</button>
+        <button class="btn btn-warning">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

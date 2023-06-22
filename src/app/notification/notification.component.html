@@ -1,0 +1,5 @@
+<!-- <div class="alert alert-success" [hidden]="hideNotification"> -->
+  <div class="alert alert-success" [ngClass]="{fdeOut: hideNotification }">
+  This website uses cookies to provide better user experience
+  <div class="close"><button class="btn" (click)="hideNotificationMethod()">x</button></div>
+</div>

@@ -1,0 +1,30 @@
+  div {
+    margin: 10px 0px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px
+  }
+
+  .close {
+    float: right;
+    margin-top: -15px;
+
+  }
+
+  button {
+    background-color: aqua;
+
+  }
+
+  button:hover {
+    background-color: red;
+  }
+
+  .fdeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+  }
