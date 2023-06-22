@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CommentInterface } from '../types/comment.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +9,8 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   constructor(private http: HttpClient) {}
   amountFromDetais!: number;
-  reviews:any=[];
+  reviews: any = [];
+  productId: any = '';
   getAllProducts() {
     return this.http.get(
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'
@@ -49,9 +52,23 @@ export class ProductService {
     );
   }
 
-  getProductReviews(id: any){
+  getProductReviews(id: any) {
     return this.http.get(
-      'http://18.159.111.193/api/Review?productId=' + id + '&PageNumber=1&PageSize=10'
+      'http://18.159.111.193/api/Review?productId=' +
+        id +
+        '&PageNumber=1&PageSize=10&orderBy=-'
     );
+  }
+
+  createproductReviews(
+    user: string = 'A1YSN09LPZDZST',
+    prodId: string,
+    reviewTxt: string
+  ): Observable<CommentInterface> {
+    return this.http.post<any>('http://18.159.111.193/api/Review', {
+      userId: user,
+      productId: prodId,
+      reviewText: reviewTxt,
+    });
   }
 }

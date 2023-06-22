@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CommentsService {
-
-  constructor(private httpClient: HttpClient) {}
+productId:any='';
+reviews:any=[];
+  constructor(private httpClient: HttpClient,private http: HttpClient) {}
 
   getComments(): Observable<CommentInterface[]> {
     return this.httpClient.get<CommentInterface[]>(
@@ -44,5 +45,14 @@ export class CommentsService {
 
   deleteComment(id: string): Observable<{}> {
     return this.httpClient.delete(`http://localhost:3000/comments/${id}`);
+  }
+
+
+
+  
+  getProductReviews(id: any){
+    return this.http.get(
+      'http://18.159.111.193/api/Review?productId=' + id + '&PageNumber=1&PageSize=10'
+    );
   }
 }

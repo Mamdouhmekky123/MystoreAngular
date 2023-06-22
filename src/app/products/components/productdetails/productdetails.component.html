@@ -1,37 +1,40 @@
-<div class="box">
-  <div class="row">
-    <div class="col-md-5 col-sm-12">
-      <img src="{{ productData.HighResImageURLs }}" alt="" />
-    </div>
-    <div class="data co-md-7 col-sm-12">
-      <div class="info">
-        <ul class="list-unstyled">
-          <li><strong>Title: </strong>{{ productData.Title }}</li>
-          <li class="des">
-            <strong>Description: </strong>{{ productData.Description }}
-          </li>
-          <li><strong>Price: </strong>{{ productData.Price }}</li>
-          <li><strong>Rate: </strong>{{ productData.VoteAverage }}</li>
-        </ul>
-        <div class="inputQuantity">
-          <input type="number" name="" class="in" [(ngModel)]="amount" />
-          <button class="btn btn-warning" (click)="addToWishlist()">
-            Add to wishlist
-          </button>
-          <button class="btn btn-primary" (click)="addToChart()">
-            Add to cart
-          </button>
+<div class="body">
+  <div class="box">
+    <div class="row">
+      <div class="col-md-5 col-sm-12">
+        <img src="{{ productData.HighResImageURLs }}" alt="" />
+      </div>
+      <div class="data co-md-7 col-sm-12">
+        <div class="info">
+          <ul class="list-unstyled">
+            <li><strong>Title: </strong>{{ productData.Title }}</li>
+            <li class="des">
+              <strong>Description: </strong>{{ productData.Description }}
+            </li>
+            <li><strong>Price: </strong>{{ productData.Price }}</li>
+            <li><strong>Rate: </strong>{{ productData.VoteAverage }}</li>
+          </ul>
+          <div class="inputQuantity">
+            <input type="number" name="" class="in" [(ngModel)]="amount" />
+            <button class="btn btn-warning" (click)="addToWishlist()">
+              Add to wishlist
+            </button>
+            <button class="btn btn-primary" (click)="addToChart()">
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="text-center w-100" *ngIf="loading">
-  <app-spinner></app-spinner>
-</div>
-<div *ngIf="!loading">
-<br /><br /><br /><br />
-<app-rating></app-rating>
-<br /><br /><br /><br />
-<app-comments currentUserId="1"></app-comments>
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <br /><br /><br /><br />
+    <app-rating></app-rating>
+    <br /><br /><br /><br />
+    <!-- <app-comments currentUserId="UserId"></app-comments> -->
+    <app-commentary></app-commentary>
+  </div>
 </div>

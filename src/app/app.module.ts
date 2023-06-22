@@ -1,32 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContainerComponent } from './container/container.component';
-import { NavComponent } from './nav/nav.component';
-import { HeaderComponent } from './header/header.component';
-import { NotificationComponent } from './notification/notification.component';
-import { SearchComponent } from './search/search.component';
-import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './product/product.component';
-import { FilterComponent } from './filter/filter.component'
+import { SharedModule } from './shared/shared.module';
+import { CartModule } from './cart/cart.module';
+import { ProductsModule } from './products/products.module';
+import { PagesModule } from './pages/pages.module';
+import { LoginModule } from './login/login.module';
+import { TokenInterceptor } from './login/interceptors/token.interceptor';
+import { NgToastModule } from 'ng-angular-popup';
+import { CommentsModule } from './comments/comments.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WishlistModule } from './wishlist/wishlist.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContainerComponent,
-    NavComponent,
-    HeaderComponent,
-    NotificationComponent,
-    SearchComponent,
-    ProductComponent,
-    FilterComponent
-  ],
+  declarations: [AppComponent],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true
+  }],
+  bootstrap: [AppComponent],
   imports: [
-    BrowserModule,
-    FormsModule
+  BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    ProductsModule,
+    CartModule,
+    PagesModule,
+    HttpClientModule,
+    LoginModule,
+    NgToastModule,
+    CommentsModule,
+    NgbModule,
+    WishlistModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -136,6 +136,11 @@ body {
   font-size: 1.31rem;
 }
 
+a {
+  text-decoration: none;
+  color: #6A6D78;
+}
+
 @media screen and (max-width: 900px) {
   .wrapper .carousel {
     grid-auto-columns: calc((100% / 2) - 9px);

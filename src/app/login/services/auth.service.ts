@@ -10,6 +10,7 @@ export class AuthService {
   // http://18.159.111.193/api/User/Register
 
   private baseUrl: string = 'http://18.159.111.193/api/User/';
+  which:string='';
 
   constructor(private http: HttpClient, private router: Router) {}
   signUp(userObj: any):Observable<any> {

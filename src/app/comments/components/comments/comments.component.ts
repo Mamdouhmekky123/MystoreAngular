@@ -13,12 +13,16 @@ export class CommentsComponent implements OnInit {
 
   comments: CommentInterface[] = [];
   activeComment: ActiveCommentInterface | null = null;
+  reviews: any = [];
+  loading: boolean = false;
+
 
   constructor(private commentsService: CommentsService) {}
 
   ngOnInit(): void {
     this.commentsService.getComments().subscribe((comments) => {
       this.comments = comments;
+      this.getReviews();
     });
   }
 
@@ -81,5 +85,25 @@ export class CommentsComponent implements OnInit {
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
+  }
+
+
+
+
+  
+  getReviews() {
+    this.loading = true;
+    this.commentsService.getProductReviews(this.commentsService.productId).subscribe(
+      (res: any) => {
+        this.reviews = res;
+        console.log(this.reviews);
+        this.commentsService.reviews = this.reviews;
+        this.loading = false;
+      },
+      (error) => {
+        alert(error.message);
+        this.loading = false;
+      }
+    );
   }
 }

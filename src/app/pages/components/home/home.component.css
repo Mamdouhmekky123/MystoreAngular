@@ -1,3 +1,8 @@
+.body {
+  display: flex;
+  justify-content: center;
+}
+
 .Title {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -12,7 +17,7 @@
 
 .btton {
   margin-top: 50px;
-  
+
   align-items: center;
 }
 

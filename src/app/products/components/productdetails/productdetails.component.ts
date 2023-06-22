@@ -4,6 +4,7 @@ import { CartService } from 'src/app/cart/services/cart.service';
 import { ProductService } from '../../services/product.service';
 // import { Product } from '../../Models/Product';
 import { WishlistService } from './../../../wishlist/services/wishlist.service';
+import { CommentsService } from 'src/app/comments/services/comments.service';
 
 @Component({
   selector: 'app-productdetails',
@@ -12,6 +13,7 @@ import { WishlistService } from './../../../wishlist/services/wishlist.service';
 })
 export class ProductdetailsComponent {
   id!: any;
+  UserId: any = '';
   loading: boolean = false;
   AllRates: any = [];
   allProducts: any[] = [];
@@ -64,15 +66,18 @@ export class ProductdetailsComponent {
     private route: ActivatedRoute,
     private service: ProductService,
     private service2: CartService,
-    private service3: WishlistService
+    private service3: WishlistService,
+    private service4: CommentsService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
+
+    console.log('normal' + this.id);
+    console.log('services' + this.service.productId);
   }
 
   ngOnInit(): void {
     this.getSingleProduct();
-    this.getReviews();
+    this.service.productId = this.id;
   }
   getSingleProduct() {
     this.loading = true;
@@ -111,19 +116,19 @@ export class ProductdetailsComponent {
     this.wishitem = { item: this.productData, quantity: 1 };
     this.service3.addToWishList(this.wishitem);
   }
-  getReviews() {
-    this.loading = true;
-    this.service.getProductReviews(this.id).subscribe(
-      (res: any) => {
-        this.reviews = res;
-        console.log(this.reviews);
-        this.service.reviews = this.reviews;
-        this.loading = false;
-      },
-      (error) => {
-        alert(error.message);
-        this.loading = false;
-      }
-    );
-  }
+  // getReviews() {
+  //   this.loading = true;
+  //   this.service.getProductReviews(this.id).subscribe(
+  //     (res: any) => {
+  //       this.reviews = res;
+  //       console.log(this.reviews);
+  //       this.service.reviews = this.reviews;
+  //       this.loading = false;
+  //     },
+  //     (error) => {
+  //       alert(error.message);
+  //       this.loading = false;
+  //     }
+  //   );
+  // }
 }
