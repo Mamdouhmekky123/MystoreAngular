@@ -1,19 +1,23 @@
-<textarea [(ngModel)]="comment" name="" id="" cols="80" rows="2"></textarea>
-<br />
-<button (click)="post()">Comment</button>
-<hr />
-<h3>Your comments</h3>
-<hr />
-<div
-  class="com"
-  [ngStyle]="{
-    backgroundColor: nowcomment.sentimentScore === 0 ? 'rgb(224, 141, 141)' : 'rgb(135, 226, 135)'
-  }"
-  *ngFor="let com of allnowcomments"
->
-  <p class="par">{{ com }}</p>
+<div *ngIf="loggedin()">
+  <textarea [(ngModel)]="comment" name="" id="" cols="80" rows="2"></textarea>
+  <br />
+  <button (click)="post()">Comment</button>
+  <hr />
+  <h3>Your comments</h3>
+  <hr />
+  <div
+    class="com"
+    [ngStyle]="{
+      backgroundColor:
+        nowcomment.sentimentScore === 0
+          ? 'rgb(224, 141, 141)'
+          : 'rgb(135, 226, 135)'
+    }"
+    *ngFor="let com of allnowcomments"
+  >
+    <p class="par">{{ com }}</p>
+  </div>
 </div>
-
 <hr />
 <h3>older comments</h3>
 <div class="com" *ngFor="let com of postComment">

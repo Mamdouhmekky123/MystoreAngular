@@ -19,4 +19,10 @@ export class SingleproductComponent {
   addToWish() {
     this.service3.addToWishList({ item: this.data, quantity: 1 });
   }
+  loggedin() {
+    return localStorage.getItem('login');
+  }
+  onLogout() {
+    localStorage.removeItem('login');
+  }
 }

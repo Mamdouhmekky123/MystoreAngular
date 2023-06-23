@@ -14,7 +14,7 @@
             <li><strong>Price: </strong>{{ productData.Price }}</li>
             <li><strong>Rate: </strong>{{ productData.VoteAverage }}</li>
           </ul>
-          <div class="inputQuantity">
+          <div *ngIf="loggedin()" class="inputQuantity">
             <input type="number" name="" class="in" [(ngModel)]="amount" />
             <button class="btn btn-warning" (click)="addToWishlist()">
               Add to wishlist

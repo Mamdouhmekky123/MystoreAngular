@@ -12,7 +12,6 @@ import { RatingComponent } from './components/rating/rating.component';
 import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { CommentaryComponent } from './components/commentary/commentary.component';
 import { SinglecommentComponent } from './components/singlecomment/singlecomment.component';
-import { SearchbyimageComponent } from './components/searchbyimage/searchbyimage.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { SearchbyimageComponent } from './components/searchbyimage/searchbyimage
     RatingComponent,
     CommentaryComponent,
     SinglecommentComponent,
-    SearchbyimageComponent,
     
   ],
   imports: [

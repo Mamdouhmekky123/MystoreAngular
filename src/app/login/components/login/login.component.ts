@@ -62,6 +62,7 @@ export class LoginComponent {
               summary: 'Login Successfully ',
               duration: 5000,
             });
+            localStorage.setItem('login', JSON.stringify(res.username));
             this.router.navigate(['/']);
           },
           error: (err) => {

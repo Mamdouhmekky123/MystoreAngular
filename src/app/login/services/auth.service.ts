@@ -10,12 +10,15 @@ export class AuthService {
   // http://18.159.111.193/api/User/Register
 
   private baseUrl: string = 'http://18.159.111.193/api/User/';
-  which:string='';
+  which: string = '';
+  signup: Boolean=true;
+  login!: Boolean;
+  logout!: Boolean;
+  userName: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
-  signUp(userObj: any):Observable<any> {
-    return this.http
-      .post<any>(`${this.baseUrl}Register`, userObj)
+  signUp(userObj: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}Register`, userObj);
   }
   // signIn(loginObj : any){
   //   return this.http.post<any>(`${this.baseUrl}authenticate`,loginObj)
@@ -31,7 +34,7 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  getOrder(){
+  getOrder() {
     return this.http.get<any>('http://18.159.111.193/api/Order/GetAll');
   }
 }

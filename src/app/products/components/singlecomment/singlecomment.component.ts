@@ -23,19 +23,25 @@ export class SinglecommentComponent implements OnInit {
     this.getReviews();
   }
 
-  post(): void  {
+  post(): void {
     this.loading = true;
-    this.service.createproductReviews("A1YSN09LPZDZST",this.service.productId,this.comment).subscribe(
-      (res: any) => {
-        this.nowcomment=res
-        console.log(this.nowcomment);
-        this.loading = false;
-      },
-      (error) => {
-        alert(error);
-        this.loading = false;
-      }
-    );
+    this.service
+      .createproductReviews(
+        'A1YSN09LPZDZST',
+        this.service.productId,
+        this.comment
+      )
+      .subscribe(
+        (res: any) => {
+          this.nowcomment = res;
+          console.log(this.nowcomment);
+          this.loading = false;
+        },
+        (error) => {
+          alert(error);
+          this.loading = false;
+        }
+      );
     this.allnowcomments.push(this.comment);
     this.comment = '';
   }
@@ -51,5 +57,8 @@ export class SinglecommentComponent implements OnInit {
         this.loading = false;
       }
     ); //subscrib ----> observable object  قناة بتعبر من خلالها الداتا من الباك للفرونت
+  }
+  loggedin() {
+    return localStorage.getItem('login');
   }
 }

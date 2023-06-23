@@ -35,6 +35,12 @@ li:hover {
   padding: 10px;
 }
 
+.user:hover {
+  color: #fff;
+  background-color: #33B5E5;
+  cursor: default;
+}
+
 .logo {
   cursor: pointer;
 }

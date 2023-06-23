@@ -1,13 +1,13 @@
 <div class="item">
-  <div routerLink="/details/{{data.Id}}">
+  <div routerLink="/details/{{ data.Id }}">
     <img src="{{ data.HighResImageURLs }}" alt="" />
     <div class="body">
-      <h4>{{ data.Title}}</h4>
+      <h4>{{ data.Title }}</h4>
     </div>
   </div>
   <div class="px-3 mb-4 d-flex justify-content-between align-items-center">
     <div class="handle">
-      <div class="inputQuantity">
+      <div *ngIf="loggedin()" class="inputQuantity">
         <input
           type="number"
           class="form-control"
@@ -16,10 +16,12 @@
         />
         <!-- I have to add formModule in products formModule -->
         <div class="inl">
-        <button class="btn btn-primary" (click)="add()">Add to cart</button>
-        <button class="btn btn-warning" (click)="addToWish()">Add to wishlist</button>
+          <button class="btn btn-primary" (click)="add()">Add to cart</button>
+          <button class="btn btn-warning" (click)="addToWish()">
+            Add to wishlist
+          </button>
+        </div>
       </div>
-    </div>
       <div class="price">price: {{ data.Price }} $</div>
     </div>
   </div>

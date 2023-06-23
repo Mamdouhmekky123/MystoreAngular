@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'chatbot', component: ChatComponent },
   { path: 'Wishlist', component: WishlistComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'order-confirmation/:username',
     component: OrderComponent,

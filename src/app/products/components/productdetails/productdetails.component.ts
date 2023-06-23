@@ -131,4 +131,7 @@ export class ProductdetailsComponent {
   //     }
   //   );
   // }
+  loggedin() {
+    return localStorage.getItem('login');
+  }
 }

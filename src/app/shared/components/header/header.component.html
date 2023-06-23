@@ -5,11 +5,23 @@
       <ul>
         <li routerLink="/home">Home</li>
         <li routerLink="/products">Products</li>
-        <li routerLink="/cart">Cart</li>
+        <div *ngIf="loggedin()">
+          <li routerLink="/cart">Cart</li>
+        </div>
         <li routerLink="/about">About</li>
-        <li routerLink="/Wishlist">Wishlist</li>
+        <div *ngIf="loggedin()">
+          <li routerLink="/Wishlist">Wishlist</li>
+        </div>
         <li routerLink="/chatbot">Technical Support</li>
-        <li routerLink="/signup">Sign Up</li>
+        <div *ngIf="!loggedin()">
+          <li routerLink="/signup">Sign Up</li>
+        </div>
+        <div *ngIf="loggedin()" (click)="onLogout()">
+          <li routerLink="/signup">logout</li>
+        </div>
+        <div *ngIf="loggedin()" (click)="getUseName()">
+          <li class="user">{{ username }}</li>
+        </div>
       </ul>
     </div>
   </div>

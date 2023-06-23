@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import ValidateForm from '../../helpers/validationform';
 import { AuthService } from '../../services/auth.service';
+import { NgToastService } from 'ng-angular-popup';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +20,9 @@ export class SignupComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private toast: NgToastService,
+    private service: SharedService
   ) {}
   ngOnInit() {
     this.signUpForm = this.fb.group({
@@ -50,12 +54,23 @@ export class SignupComponent {
       this.auth.signUp(this.signUpForm.value).subscribe({
         next: (res) => {
           console.log(res);
-          alert("Registered Successfully")
+          this.auth.userName = res.username;
+          console.log(this.auth.userName);
+          this.toast.success({
+            detail: 'SUCCESS',
+            summary: 'Registered Successfully ',
+            duration: 5000,
+          });
           this.signUpForm.reset();
           this.router.navigate(['login']);
         },
         error: (err) => {
-          alert(err.error);
+          this.toast.error({
+            detail: 'ERROR',
+            summary: err.error,
+            duration: 5000,
+          });
+          console.log(err);
         },
       });
     } else {
