@@ -19,7 +19,12 @@ export class HeaderComponent implements OnInit {
   loggedin() {
     return localStorage.getItem('login');
   }
+  
+  adminIn(){
+    return localStorage.getItem('admin');
+  }
   onLogout() {
+    localStorage.removeItem('admin');
     localStorage.removeItem('login');
     localStorage.removeItem('cart');
     localStorage.removeItem('wishList');

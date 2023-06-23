@@ -9,9 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { ProductsModule } from "../products/products.module";
 import { SearchbyimageComponent } from './components/searchbyimage/searchbyimage.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
-    declarations: [AboutComponent, HomeComponent, CarouselComponent, SearchbyimageComponent],
+    declarations: [AboutComponent, HomeComponent, CarouselComponent, SearchbyimageComponent, AdminComponent],
     exports: [AboutComponent, HomeComponent, CarouselComponent],
     imports: [
         CommonModule,

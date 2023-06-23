@@ -1,0 +1,15 @@
+<div *ngIf="loggedin()" >
+<h1 class="Title">Recommended Products</h1>
+<div class="bord">
+  <div class="mt-30">
+    <div class="row">
+      <div class="col-md-4 col-sm-12" *ngFor="let item of recommrndedProductId">
+        <app-singleproduct
+          [data]="item"
+          (item)="addingToChart($event)"
+        ></app-singleproduct>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

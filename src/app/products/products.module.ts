@@ -12,6 +12,7 @@ import { RatingComponent } from './components/rating/rating.component';
 import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { CommentaryComponent } from './components/commentary/commentary.component';
 import { SinglecommentComponent } from './components/singlecomment/singlecomment.component';
+import { RecommendedproductComponent } from './components/recommendedproduct/recommendedproduct.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SinglecommentComponent } from './components/singlecomment/singlecomment
     RatingComponent,
     CommentaryComponent,
     SinglecommentComponent,
+    RecommendedproductComponent,
     
   ],
   imports: [
@@ -41,6 +43,7 @@ import { SinglecommentComponent } from './components/singlecomment/singlecomment
     RatingComponent,
     CommentaryComponent,
     SinglecommentComponent,
+    RecommendedproductComponent
   ],
 })
 export class ProductsModule {}

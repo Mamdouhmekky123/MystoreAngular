@@ -10,6 +10,7 @@ import { ChatComponent } from './chatbot/components/chat/chat.component';
 import { LoginComponent } from './login/components/login/login.component';
 import { SignupComponent } from './login/components/signup/signup.component';
 import { WishlistComponent } from './wishlist/components/wishlist/wishlist.component';
+import { AdminComponent } from './pages/components/admin/admin.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductlistComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'Wishlist', component: WishlistComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
   {
     path: 'order-confirmation/:username',
     component: OrderComponent,

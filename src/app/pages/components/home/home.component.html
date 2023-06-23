@@ -5,7 +5,7 @@
 <div class="searchImage">
   <app-searchbyimage></app-searchbyimage>
 </div>
-
+<div *ngIf="loggedin()" >
 <h1 class="Title">Recommended Products</h1>
 <div class="bord">
   <div class="mt-30">
@@ -18,6 +18,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <h1 class="Title">Most Popular</h1>

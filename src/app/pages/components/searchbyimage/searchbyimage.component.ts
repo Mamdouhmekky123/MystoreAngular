@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component , ViewChild} from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 
 @Component({
@@ -50,7 +50,7 @@ export class SearchbyimageComponent {
     this.http
       .post(
         'http://18.159.111.193/api/Product/recommendByImage?PageNumber=1&PageSize=10&FieldsToExclude=Features',
-        fd
+        this.file
       )
       .subscribe(
         (res) => {

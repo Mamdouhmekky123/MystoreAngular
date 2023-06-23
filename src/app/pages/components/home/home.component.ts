@@ -15,8 +15,9 @@ export class HomeComponent {
   constructor(private service: ProductService, private service2: CartService) {}
   ngOnInit(): void {
     this.getPopular();
-    this.getUserProd()
-    this.service.getRandomUserId();
+    this.getUserProd();
+    console.log(this.service.getRandomUserId());
+  console.log(this.userId)
   }
   title = 'carousel';
   Allimages = [
