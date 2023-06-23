@@ -11,5 +11,7 @@
 </div>
 
 <div class="p-4 d-flex justify-content-center">
-  <input type="file" (change)="onChangeFile($event)" />
+  <!-- <input type="text" (change)="getName(name.value)" #name /> -->
+  <input type="file" (change)="getFile($event)" />
+  <input type="button" value="Upload file" (click)="submitData()" />
 </div>

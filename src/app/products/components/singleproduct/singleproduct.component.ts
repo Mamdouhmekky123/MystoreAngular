@@ -22,7 +22,5 @@ export class SingleproductComponent {
   loggedin() {
     return localStorage.getItem('login');
   }
-  onLogout() {
-    localStorage.removeItem('login');
-  }
+
 }

@@ -10,10 +10,13 @@ import { CartService } from 'src/app/cart/services/cart.service';
 })
 export class HomeComponent {
   products: any = [];
-  item:any={};
+  recommrndedUserProduct: any = [];
+  item: any = {};
   constructor(private service: ProductService, private service2: CartService) {}
   ngOnInit(): void {
     this.getPopular();
+    this.getUserProd()
+    this.service.getRandomUserId();
   }
   title = 'carousel';
   Allimages = [
@@ -38,6 +41,7 @@ export class HomeComponent {
       imageAlt: 'sales',
     },
   ];
+  userId: string = this.service.getRandomUserId();
   getPopular() {
     this.service.getMostPopular().subscribe(
       (res: any) => {
@@ -51,5 +55,21 @@ export class HomeComponent {
   }
   addingToChart(event: any) {
     this.service2.addToChart(event);
+  }
+
+  getUserProd() {
+    this.service.getRecommendedUserProducts(this.userId).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.recommrndedUserProduct = res;
+      },
+      (error) => {
+        alert(error.message);
+      }
+    ); //subscrib ----> observable object  قناة بتعبر من خلالها الداتا من الباك للفرونت
+  }
+
+  loggedin() {
+    return localStorage.getItem('login');
   }
 }

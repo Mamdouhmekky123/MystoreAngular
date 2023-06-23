@@ -52,6 +52,21 @@ export class ProductService {
     );
   }
 
+  getRecommendedUserProducts(user:string) {
+    return this.http.post(
+      'http://18.159.111.193/api/Product/recommendByUid/A2KSSY17EVL3OX?PageNumber=1&PageSize=6&FieldsToExclude=Features',user
+    );
+  }
+   getRandomUserId(): string {
+    const userIds: string[] = ["A2KSSY17EVL3OX","AM8YFWHCXNJS3","A3PBRY694E6BHV","A3C53H99BODHCV","A1NTLY4K6GD1WX","AI3ZL8GDSX3G8","A47RW7T0MFHSX","A2E5L8WZYMFGZ4","APJ5LNYEUXMEM","A3H7XT5I2XIGLL"];
+  
+    const randomIndex = Math.floor(Math.random() * userIds.length);
+    const randomUserId = userIds[randomIndex];
+  
+    return randomUserId;
+  }
+
+
   getProductReviews(id: any) {
     return this.http.get(
       'http://18.159.111.193/api/Review?productId=' +

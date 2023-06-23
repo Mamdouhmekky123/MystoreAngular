@@ -3,7 +3,7 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsModule } from '../comments/comments.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
@@ -19,7 +19,8 @@ import { SearchbyimageComponent } from './components/searchbyimage/searchbyimage
         FormsModule,
         NgbModule,
         CommentsModule,
-        ProductsModule
+        ProductsModule,
+        ReactiveFormsModule
     ]
 })
 export class PagesModule {}
