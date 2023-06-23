@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component , ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
+import { CartService } from 'src/app/cart/services/cart.service';
+import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
   selector: 'app-searchbyimage',
@@ -8,7 +10,13 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./searchbyimage.component.css'],
 })
 export class SearchbyimageComponent {
-  constructor(private http: HttpClient, private toast: NgToastService) {}
+  constructor(
+    private http: HttpClient,
+    private toast: NgToastService,
+    private service: ProductService,
+    private service2: CartService
+  ) {}
+  SearchProduct: any = [];
   // selectedfile: any;
   // onChangeFile(event: any) {
   //   if (event.target.files.length > 0) {
@@ -37,7 +45,7 @@ export class SearchbyimageComponent {
   //   }
   // }
   name: string = '';
-  file:any;
+  file: any;
   getName(name: string) {}
   getFile(event: any) {
     this.file = event.target.files[0];
@@ -45,17 +53,17 @@ export class SearchbyimageComponent {
   }
   submitData() {
     let fd = new FormData();
-    fd.append("file",this.file)
+    fd.append('imageFile', this.file);
 
     this.http
       .post(
-        'http://18.159.111.193/api/Product/recommendByImage?PageNumber=1&PageSize=10&FieldsToExclude=Features',
-        this.file
+        'http://18.159.111.193/api/Product/recommendByImage?PageNumber=1&PageSize=6&FieldsToExclude=Features',
+        fd
       )
       .subscribe(
         (res) => {
           console.log(res);
-
+          this.SearchProduct = res;
           //Edit here
         },
         (error) => {
@@ -84,4 +92,11 @@ export class SearchbyimageComponent {
   //     }
   //   );
   // }
+  addingToChart(event: any) {
+    this.service2.addToChart(event);
+  }
+
+  loggedin() {
+    return localStorage.getItem('login');
+  }
 }
