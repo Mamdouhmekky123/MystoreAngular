@@ -13,6 +13,7 @@ import { NgToastModule } from 'ng-angular-popup';
 import { CommentsModule } from './comments/comments.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WishlistModule } from './wishlist/wishlist.module';
+import { ChatbotModule } from './chatbot/chatbot.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +33,8 @@ import { WishlistModule } from './wishlist/wishlist.module';
     NgToastModule,
     CommentsModule,
     NgbModule,
-    WishlistModule
+    WishlistModule,
+    ChatbotModule
   ],
 })
 export class AppModule {}

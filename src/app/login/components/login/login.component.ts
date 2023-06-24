@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import ValidateForm from '../../helpers/validationform';
 import { AuthService } from '../../services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
+import { IssueService } from 'src/app/chatbot/services/issue.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthService,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private serviceIssue: IssueService
   ) {}
 
   ngOnInit() {
@@ -62,12 +64,11 @@ export class LoginComponent {
               summary: 'Login Successfully ',
               duration: 5000,
             });
-            if(res.username === "Admin_789"){
+            this.serviceIssue.userName = res.username;
+            if (res.username === 'Admin_789') {
               localStorage.setItem('admin', JSON.stringify(res.username));
-
-            }else{
+            } else {
               localStorage.setItem('login', JSON.stringify(res.username));
-
             }
             this.router.navigate(['/']);
           },

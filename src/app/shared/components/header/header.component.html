@@ -7,28 +7,34 @@
         <div>
           <li *ngIf="adminIn()" routerLink="/admin">admin</li>
         </div>
-        <li routerLink="/products">Products</li>
+        <div *ngIf="!adminIn()">
+          <li routerLink="/products">Products</li>
+        </div>
         <div *ngIf="loggedin()">
           <li routerLink="/cart">Cart</li>
         </div>
+
         <li routerLink="/about">About</li>
+
         <div *ngIf="loggedin()">
           <li routerLink="/Wishlist">Wishlist</li>
         </div>
-        <li routerLink="/chatbot">Technical Support</li>
+        <div *ngIf="!adminIn()">
+          <li routerLink="/chatbot">Technical Support</li>
+        </div>
         <div *ngIf="!adminIn()">
           <div *ngIf="!loggedin()">
-          <li routerLink="/signup">Sign Up</li>
-        </div>
+            <li routerLink="/signup">Sign Up</li>
+          </div>
         </div>
         <div *ngIf="loggedin()" (click)="onLogout()">
           <li routerLink="/signup">logout</li>
         </div>
-        <div *ngIf="adminIn()" >
-        <div *ngIf="!loggedin()" (click)="onLogout()">
-          <li routerLink="/signup">logout</li>
+        <div *ngIf="adminIn()">
+          <div *ngIf="!loggedin()" (click)="onLogout()">
+            <li routerLink="/signup">logout</li>
+          </div>
         </div>
-      </div>
         <div *ngIf="loggedin()" (click)="getUseName()">
           <li class="user">{{ username }}</li>
         </div>

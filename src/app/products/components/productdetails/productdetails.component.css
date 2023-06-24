@@ -1,6 +1,7 @@
-.body{
+.body {
   display: block;
 }
+
 .box {
   width: 100%;
   margin: 100px auto;
@@ -53,5 +54,5 @@
 
 .des {
   width: 50%;
-  
+  height: 500px;
 }

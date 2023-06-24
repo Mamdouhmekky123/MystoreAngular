@@ -1,0 +1,22 @@
+<div>
+  <h2>Enter your issue here and it will be send to the admin</h2>
+  <div class="body">
+    <div>
+      <textarea
+        [(ngModel)]="comment"
+        name=""
+        id=""
+        cols="70"
+        rows="2"
+      ></textarea>
+      <br />
+      <button (click)="AddIssue()">Comment</button>
+      <hr />
+      <hr />
+      <div class="com" *ngFor="let com of allnowcomments">
+        <p class="par">{{ com }}</p>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>

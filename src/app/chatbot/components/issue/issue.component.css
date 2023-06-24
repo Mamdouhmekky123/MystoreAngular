@@ -1,0 +1,29 @@
+h2 {
+  margin-top: 300px;
+}
+
+.body {
+  border: 5px solid #33B5E5;
+  padding: 50px;
+  margin-bottom: 100px;
+
+}
+
+.com {
+  border-radius: 10px;
+  background-color: #33B5E5;
+}
+
+.par {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 50px;
+}
+
+.here {
+  border-radius: 10px;
+}
+
+textarea {
+  font-size: 25px;
+}
