@@ -16,8 +16,12 @@ export class HomeComponent {
   ngOnInit(): void {
     this.getPopular();
     this.getUserProd();
-    console.log(this.service.getRandomUserId());
-  console.log(this.userId)
+    localStorage.setItem(
+      'randUser',
+      JSON.stringify(this.service.getRandomUserId())
+    );
+
+    console.log(this.userId);
   }
   title = 'carousel';
   Allimages = [
@@ -42,7 +46,7 @@ export class HomeComponent {
       imageAlt: 'sales',
     },
   ];
-  userId: string = this.service.getRandomUserId();
+  userId: string = JSON.parse(localStorage.getItem('randUser')!);
   getPopular() {
     this.service.getMostPopular().subscribe(
       (res: any) => {
@@ -63,6 +67,7 @@ export class HomeComponent {
       (res: any) => {
         console.log(res);
         this.recommrndedUserProduct = res;
+        console.log(this.userId);
       },
       (error) => {
         alert(error.message);

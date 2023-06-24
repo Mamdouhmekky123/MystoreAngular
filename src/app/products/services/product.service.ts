@@ -1,18 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommentInterface } from '../types/comment.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class ProductService implements OnInit {
   constructor(private http: HttpClient) {}
   amountFromDetais!: number;
   reviews: any = [];
   productId: any = '';
-  rating:number=0;
-  disable:boolean=false;
+  rating: number = 0;
+  disable: boolean = false;
+
+  ngOnInit(): void {
+    this.getRandomUserId();
+  }
   getAllProducts() {
     return this.http.get(
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'
@@ -54,16 +58,18 @@ export class ProductService {
     );
   }
   getRecommendedById(id: string) {
-    return this.http.post(
-      'http://18.159.111.193/api/Product/recommendByPid/'+id+'?PageNumber=1&PageSize=6&FieldsToExclude=Features',
-      id
+    return this.http.get(
+      'http://18.159.111.193/api/Product/recommendByPid/' +
+        id +
+        '?PageNumber=1&PageSize=10&FieldsToExclude=Features'
     );
   }
 
   getRecommendedUserProducts(user: string) {
-    return this.http.post(
-      'http://18.159.111.193/api/Product/recommendByUid/A2KSSY17EVL3OX?PageNumber=2&PageSize=6&FieldsToExclude=Features',
-      user
+    return this.http.get(
+      'http://18.159.111.193/api/Product/recommendByUid/' +
+        user +
+        '?PageNumber=2&PageSize=6&FieldsToExclude=Features'
     );
   }
   getRandomUserId(): string {
