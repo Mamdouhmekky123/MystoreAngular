@@ -18,3 +18,13 @@ img {
   width: 85%;
   margin-left: 100px;
 }
+
+.cust {
+  font-size: larger;
+  color: green;
+}
+
+.reg {
+  font-size: larger;
+  color: rgb(47, 255, 116);
+}
