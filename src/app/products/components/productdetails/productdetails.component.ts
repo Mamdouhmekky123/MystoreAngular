@@ -17,6 +17,7 @@ export class ProductdetailsComponent {
   loading: boolean = false;
   AllRates: any = [];
   allProducts: any[] = [];
+  totalRating: any = [];
   reviews: any = [];
   productData: any = {
     Brand: {
@@ -61,6 +62,10 @@ export class ProductdetailsComponent {
   amount: number = 1;
   item: any = {};
   wishitem: any = {};
+  ourRate: any = { id: '', rate: 0 };
+  finalRate: string = '';
+  // rateItems: any = { id: '', oldrate: 0.0, newrate: 0.0, count: '' };
+  // finalRate: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -78,14 +83,34 @@ export class ProductdetailsComponent {
   ngOnInit(): void {
     this.getSingleProduct();
     this.service.productId = this.id;
+    // this.finalRate = JSON.parse(localStorage.getItem('rate')!);
+    // console.log(this.finalRate);
   }
   getSingleProduct() {
     this.loading = true;
     this.service.getProductById(this.id).subscribe(
       (res: any) => {
         this.productData = res;
+        this.service.disable = false;
+        // if (res.Id === this.ourRate.id) {
+        //   this.service.disable = true;
+        // } else {
+        //   this.service.disable = false;
+        // }
         console.log(this.productData);
         this.loading = false;
+        this.ourRate = JSON.parse(localStorage.getItem('rate')!);
+        if (res.Id === this.ourRate.id) {
+          this.service.disable = true;
+        }
+        this.ourRate.id = this.id;
+        console.log(this.ourRate);
+        this.finalRate = (
+          (this.ourRate.rate + res.VoteAverage * res.VoteCount) /
+          (res.VoteCount + 1)
+        ).toFixed(2);
+        console.log(this.finalRate);
+        // this.ourRate.id = res.Id;
       },
       (error) => {
         alert(error.message);

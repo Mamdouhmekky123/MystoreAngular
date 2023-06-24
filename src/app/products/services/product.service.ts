@@ -11,6 +11,8 @@ export class ProductService {
   amountFromDetais!: number;
   reviews: any = [];
   productId: any = '';
+  rating:number=0;
+  disable:boolean=false;
   getAllProducts() {
     return this.http.get(
       'http://18.159.111.193/api/Product?PageNumber=1&PageSize=30&FieldsToExclude=Features'

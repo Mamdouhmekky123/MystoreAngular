@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IssueService } from 'src/app/chatbot/services/issue.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-order',
@@ -11,13 +13,24 @@ export class OrderComponent {
   cartProducts: any[] = [];
   total: number = 0;
   order: boolean = true;
-  constructor(private route: ActivatedRoute) {
+  fullName: string = '';
+  Address: string = '';
+  dateTime: any = this.service2.getCurrentDateTime();
+  cartObj: any = { name: '', invoce: '', current: '' };
+  allinvoiceArr: any = [];
+  constructor(
+    private route: ActivatedRoute,
+    private service2: IssueService,
+    private service: CartService
+  ) {
     this.clientName = this.route.snapshot.paramMap.get('username')!;
+    console.log(this.service.Address);
   }
   ngOnInit(): void {
     this.getCartProduct();
     this.getTotalCartPrice();
     this.afterSubmit();
+    console.log(this.allinvoiceArr);
   }
   //get the set of products added to the cart from the local storage
   getCartProduct() {
@@ -43,6 +56,14 @@ export class OrderComponent {
     }
   }
   afterSubmit() {
+    this.cartObj.name = this.clientName;
+    this.cartObj.invoce = this.total;
+    this.cartObj.current = this.dateTime;
+    if ('invoice' in localStorage) {
+      this.allinvoiceArr = JSON.parse(localStorage.getItem('invoice')!);
+    }
+    this.allinvoiceArr.push(this.cartObj);
+    localStorage.setItem('invoice', JSON.stringify(this.allinvoiceArr));
     localStorage.setItem('cart', JSON.stringify([]));
   }
 }

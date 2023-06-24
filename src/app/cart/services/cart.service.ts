@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
+import { IssueService } from 'src/app/chatbot/services/issue.service';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,9 @@ import { NgToastService } from 'ng-angular-popup';
 export class CartService {
   cartData: any[] = [];
   full_name: string = '';
+  Address: string = '';
+  TotalMony:any=0
+
   constructor(private toast: NgToastService) {}
 
   addToChart(event: any) {
@@ -29,11 +33,13 @@ export class CartService {
         });
         // alert('This product is successfully added to the cart ');
         this.cartData.push(event);
-        localStorage.setItem('cart', JSON.stringify(this.cartData)); // stringfy used when send or update local storage
+        localStorage.setItem('cart', JSON.stringify(this.cartData));
+        localStorage.setItem('adminCart', JSON.stringify(this.cartData)); // stringfy used when send or update local storage
       }
     } else {
       this.cartData.push(event);
       localStorage.setItem('cart', JSON.stringify(this.cartData));
+      localStorage.setItem('adminCart', JSON.stringify(this.cartData));
     }
   }
 
@@ -50,11 +56,13 @@ export class CartService {
       } else {
         alert('This product is successfully added to the cart ');
         this.cartData.push(event);
-        localStorage.setItem('cart', JSON.stringify(this.cartData)); // stringfy used when send or update local storage
+        localStorage.setItem('cart', JSON.stringify(this.cartData));
+        localStorage.setItem('adminCart', JSON.stringify(this.cartData)); // stringfy used when send or update local storage
       }
     } else {
       this.cartData.push(event);
       localStorage.setItem('cart', JSON.stringify(this.cartData));
+      localStorage.setItem('adminCart', JSON.stringify(this.cartData));
     }
   }
 }

@@ -1,11 +1,47 @@
-<h1>Input rating</h1>
-<ngb-rating
-  [max]="5"
-  (click)="GetRating()"
-  [formControl]="ratingcontrol"
-></ngb-rating>
+<div *ngIf="loggedin()">
+  <h1>Input rating</h1>
+  <ngb-rating [max]="5" [formControl]="ratingcontrol"></ngb-rating>
+  <div class="button-container">
+    <button
+      class="btn btn-primary"
+      (click)="GetRating()"
+      [disabled]="isRatingSubmitted"
+      style="font-size: 25px"
+    >
+      Submit Rating
+    </button>
+  </div>
 
+  <!-- 
 <h1>Output rating</h1>
-<ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating>
-<h2>{{ Finalrating }}</h2>
-<h2>Rating from {{ ratingcount }} users</h2>
+<ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating> -->
+  <h2>{{ rate }}</h2>
+</div>
+<!-- <div class="rating-container">
+  <h1>Input rating</h1>
+  <ngb-rating
+    [max]="5"
+    [formControl]="ratingControl"
+    [rate]="ratingControl?.value || 0"
+    [readonly]="isRatingSubmitted"
+  ></ngb-rating>
+
+  <div class="button-container">
+    <button
+      class="btn btn-primary"
+      (click)="submitRating()"
+      [disabled]="isRatingSubmitted"
+    >
+      Submit Rating
+    </button>
+  </div>
+
+  <h1>Output rating</h1>
+  <ngb-rating
+    [max]="5"
+    [rate]="finalRating || 0"
+    [readonly]="true"
+  ></ngb-rating>
+
+  <h2>{{ finalRating }}</h2>
+</div> -->

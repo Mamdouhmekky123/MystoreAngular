@@ -37,6 +37,7 @@ export class CartComponent {
     this.cartProducts[index].quantity--;
     this.NumberOfItems();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
   //   //Increse amount of product
   plus(index: number) {
@@ -44,11 +45,14 @@ export class CartComponent {
     this.getTotalCartPrice();
     this.NumberOfItems();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
   //detect changes in  amount of product
   detectChange(index: number) {
     this.NumberOfItems();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
   //delete  products from cart
   deleteItem(index: number) {
@@ -56,12 +60,16 @@ export class CartComponent {
     this.NumberOfItems();
     this.getTotalCartPrice();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
   clearData() {
     this.cartProducts = [];
     this.NumberOfItems();
     this.getTotalCartPrice();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
 
   NumberOfItems() {
@@ -70,5 +78,7 @@ export class CartComponent {
       this.totalItems += this.cartProducts[i].quantity;
     }
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+
+    localStorage.setItem('adminCart', JSON.stringify(this.cartProducts));
   }
 }

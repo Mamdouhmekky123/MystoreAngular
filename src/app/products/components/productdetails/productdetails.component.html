@@ -8,11 +8,12 @@
         <div class="info">
           <ul class="list-unstyled">
             <li><strong>Title: </strong>{{ productData.Title }}</li>
-            <li >
-              <strong>Description: </strong>{{ productData.Description }}
-            </li>
-            <li><strong>Price: </strong>{{ productData.Price }}</li>
-            <li><strong>Rate: </strong>{{ productData.VoteAverage }}</li>
+            <li><strong>Description: </strong>{{ productData.Description }}</li>
+            <li><strong>Price: </strong>{{ productData.Price }} $</li>
+            <!-- <li *ngIf="showAverage">
+              <strong>Rate: </strong>{{ productData.voteAverage }}
+            </li> -->
+            <li><strong>Rate: </strong>{{ finalRate }}</li>
           </ul>
           <div *ngIf="loggedin()" class="inputQuantity">
             <input type="number" name="" class="in" [(ngModel)]="amount" />

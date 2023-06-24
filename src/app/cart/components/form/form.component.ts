@@ -10,12 +10,15 @@ import { FormUser } from '../../class/form-user';
 export class FormComponent {
   fullName: string = '';
   Address: string = '';
+
   cardNumber!: number;
   userModel = new FormUser();
+  cartProducts: any = [];
   constructor(private service: CartService) {}
 
   ngOnInit(): void {}
   onSubmit() {
     this.service.full_name = this.userModel.name;
+    this.service.Address = this.userModel.address;
   }
 }

@@ -75,3 +75,7 @@ th {
 img {
   cursor: pointer;
 }
+
+.top {
+  margin-bottom: 100px;
+}
