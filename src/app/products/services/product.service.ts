@@ -70,9 +70,7 @@ export class ProductService implements OnInit {
     const values: string[] = ['2', '3', '4'];
     const randomIndex: number = Math.floor(Math.random() * values.length);
     return this.http.get(
-      'http://18.159.111.193/api/Product/recommendByUid/AM8YFWHCXNJS3?PageNumber=' +
-        values[randomIndex] +
-        '&PageSize=6&FieldsToExclude=Features'
+      'http://18.159.111.193/api/Product/recommendByUid/AM8YFWHCXNJS3?PageNumber=2&PageSize=6&FieldsToExclude=Features'
     );
   }
   getRandomUserId(): string {
