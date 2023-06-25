@@ -28,11 +28,13 @@ export class IssueComponent implements OnInit {
     private toast: NgToastService
   ) {}
   ngOnInit(): void {
-    if (this.serviceIssue.userName === '') {
-      this.userOb.username = 'unlogged user';
-    } else {
-      this.userOb.username = this.serviceIssue.userName;
-    }
+    // if (this.serviceIssue.userName === '') {
+    //   this.userOb.username = 'unlogged user';
+    // } else {
+    //   this.userOb.username = this.serviceIssue.userName;
+    // }
+          this.userOb.username = this.serviceIssue.userName;
+
   }
 
   AddIssue() {

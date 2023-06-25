@@ -1,5 +1,7 @@
 h2 {
-  margin-top: 300px;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .body {
@@ -26,4 +28,12 @@ h2 {
 
 textarea {
   font-size: 25px;
+}
+
+.bt {
+  font-size: 25px;
+}
+
+.iss {
+  margin-bottom: 300px;
 }

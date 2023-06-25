@@ -19,7 +19,7 @@
         <div *ngIf="loggedin()">
           <li routerLink="/Wishlist">Wishlist</li>
         </div>
-        <div *ngIf="!adminIn()">
+        <div *ngIf="loggedin()">
           <li routerLink="/chatbot">Technical Support</li>
         </div>
         <div *ngIf="!adminIn()">

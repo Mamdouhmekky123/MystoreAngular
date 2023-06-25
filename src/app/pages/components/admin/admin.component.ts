@@ -15,8 +15,8 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.issues = JSON.parse(localStorage.getItem('issue')!);
     this.invoices = JSON.parse(localStorage.getItem('invoice')!);
-    console.log(this.invoices[0] );
-    console.log(this.issues[0]);
+    // console.log(this.invoices[0]);
+    // console.log(this.issues[0]);
     this.NumberOfItems();
   }
 
@@ -31,10 +31,14 @@ export class AdminComponent implements OnInit {
   //     }
   //   }
   clearInvoices() {
-    localStorage.removeItem('invoice');
+    this.invoices = [];
+    this.NumberOfInvItems();
+    localStorage.setItem('invoice', JSON.stringify(this.invoices));
   }
   clearIssues() {
-    localStorage.removeItem('issue');
+    this.issues = [];
+    this.NumberOfInvItems();
+    localStorage.setItem('issue', JSON.stringify(this.issues));
   }
 
   deleteInvoice(index: any) {
@@ -47,6 +51,7 @@ export class AdminComponent implements OnInit {
     this.NumberOfItems();
     localStorage.setItem('issue', JSON.stringify(this.issues));
   }
+
   NumberOfInvItems() {
     this.totalInvItems = 0;
     for (let i = 0; i < this.invoices.length; i++) {
@@ -54,6 +59,7 @@ export class AdminComponent implements OnInit {
     }
     localStorage.setItem('invoice', JSON.stringify(this.invoices));
   }
+
   NumberOfItems() {
     this.totalItems = 0;
     for (let i = 0; i < this.issues.length; i++) {

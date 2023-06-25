@@ -81,8 +81,9 @@ export class ProductdetailsComponent {
   }
 
   ngOnInit(): void {
-    this.getSingleProduct();
     this.service.productId = this.id;
+    this.getSingleProduct();
+
     // this.finalRate = JSON.parse(localStorage.getItem('rate')!);
     // console.log(this.finalRate);
   }
@@ -156,6 +157,9 @@ export class ProductdetailsComponent {
   //     }
   //   );
   // }
+  refreshPage() {
+    location.reload();
+  }
   loggedin() {
     return localStorage.getItem('login');
   }

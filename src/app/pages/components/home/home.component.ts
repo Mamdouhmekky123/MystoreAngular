@@ -12,6 +12,7 @@ export class HomeComponent {
   products: any = [];
   recommrndedUserProduct: any = [];
   item: any = {};
+  loading: boolean = false;
   constructor(private service: ProductService, private service2: CartService) {}
   ngOnInit(): void {
     this.getPopular();
@@ -26,35 +27,42 @@ export class HomeComponent {
   title = 'carousel';
   Allimages = [
     {
-      imageSrc: 'assets/online shopping.jpg',
+      imageSrc: 'assets/onlineshopping.jpg',
       imageAlt: 'nature1',
     },
     {
-      imageSrc: 'assets/men1.jpg',
+      imageSrc: 'assets/men4.jpg',
       imageAlt: 'nature2',
     },
     {
-      imageSrc: 'assets/samsung.jpg',
+      imageSrc: 'assets/samsun.jpg',
       imageAlt: 'samsung',
     },
     {
-      imageSrc: 'assets/men2.jpg',
+      imageSrc: 'assets/men3.jpg',
       imageAlt: 'men2',
     },
     {
-      imageSrc: 'assets/sales.jpg',
+      imageSrc: 'assets/sales1.jpg',
+      imageAlt: 'sales',
+    },
+    {
+      imageSrc: 'assets/sales2.jpg',
       imageAlt: 'sales',
     },
   ];
   userId: string = JSON.parse(localStorage.getItem('randUser')!);
   getPopular() {
+    this.loading = true;
     this.service.getMostPopular().subscribe(
       (res: any) => {
         console.log(res);
         this.products = res;
+        this.loading = false;
       },
       (error) => {
         alert(error.message);
+        this.loading = false;
       }
     ); //subscrib ----> observable object  قناة بتعبر من خلالها الداتا من الباك للفرونت
   }
@@ -63,14 +71,18 @@ export class HomeComponent {
   }
 
   getUserProd() {
-    this.service.getRecommendedUserProducts(this.userId).subscribe(
+    // alert(this.userId);
+    this.loading = true;
+    this.service.getRecommendedUserProducts().subscribe(
       (res: any) => {
         console.log(res);
         this.recommrndedUserProduct = res;
         console.log(this.userId);
+        this.loading = false;
       },
       (error) => {
         alert(error.message);
+        this.loading = false;
       }
     ); //subscrib ----> observable object  قناة بتعبر من خلالها الداتا من الباك للفرونت
   }

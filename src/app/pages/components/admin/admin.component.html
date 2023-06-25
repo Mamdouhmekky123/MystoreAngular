@@ -19,7 +19,7 @@
           <th>User Name</th>
           <th>Total amount of money</th>
           <th style="width: 25%">The Date</th>
-          <th>Status</th>
+          <!-- <th>Status</th> -->
           <th></th>
         </tr>
       </thead>
@@ -27,14 +27,14 @@
         <tr *ngFor="let item of invoices; let index = index">
           <td></td>
           <td>{{ item.name }}</td>
-          <td>{{ item.invoice }}</td>
+          <td>{{ item.invoce }}</td>
           <td>{{ item.current }}</td>
-          <td>
+          <!-- <td>
             <span style="color: red"> unshiped </span>
-          </td>
+          </td> -->
           <td>
             <button class="btn btn-success" (click)="deleteInvoice(index)">
-              solved
+              send
             </button>
           </td>
         </tr>
@@ -51,47 +51,48 @@
     </table>
   </div>
 </div>
-<h1>Customers Issues</h1>
-<hr />
-<div>
-  <div class="headCart">
-    <p class="lead">
-      There is
-      <label for="" class="text-danger"> [{{ issues.length }}] </label>
-      Customer issues
-    </p>
-    <span class="text-danger cart-header" (click)="clearIssues()"
-      >Clear All issues</span
-    >
-  </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th>User Name</th>
-        <th>The issue message</th>
-        <th style="width: 25%">The Date</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of issues; let index = index">
-        <td></td>
-        <td>{{ item.username }}</td>
-        <td>{{ item.issue }}</td>
-        <td>{{ item.current }}</td>
-        <td>
+<div class="top">
+  <h1>Customers Issues</h1>
+  <hr />
+  <div>
+    <div class="headCart">
+      <p class="lead">
+        There is
+        <label for="" class="text-danger"> [{{ issues.length }}] </label>
+        Customer issues
+      </p>
+      <span class="text-danger cart-header" (click)="clearIssues()"
+        >Clear All issues</span
+      >
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>User Name</th>
+          <th>The issue message</th>
+          <th style="width: 25%">The Date</th>
+          <!-- <th>Status</th> -->
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of issues; let index = index">
+          <td></td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.issue }}</td>
+          <td>{{ item.current }}</td>
+          <!-- <td>
           <span style="color: red"> Unsolved </span>
-        </td>
-        <td>
-          <button class="btn btn-success" (click)="deleteItem(index)">
-            solved
-          </button>
-        </td>
-      </tr>
-    </tbody>
-    <!-- <tfoot>
+        </td> -->
+          <td>
+            <button class="btn btn-success" (click)="deleteItem(index)">
+              solve
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <!-- <tfoot>
     <tr>
       <th></th>
       <th></th>
@@ -100,5 +101,6 @@
       <th>Total : $ {{ total }}</th>
     </tr>
   </tfoot> -->
-  </table>
+    </table>
+  </div>
 </div>

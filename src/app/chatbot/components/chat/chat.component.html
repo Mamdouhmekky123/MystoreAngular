@@ -1,23 +1,25 @@
-<div class="body">
-  <h1>
-    Click on the robot to go to <strong class="cust">Customer Services</strong>
-  </h1>
+<div *ngIf="loggedin()">
+  <div class="body">
+    <h1>
+      Click on the robot to go to
+      <strong class="cust">Customer Services</strong>
+    </h1>
 
-  <a href="http://18.185.47.218/CustomerserviceIndex.html" target="_blank"
-    ><img src="assets/Chatbot.jpg" alt="chatbot"
-  /></a>
+    <a href="http://18.185.47.218/CustomerserviceIndex.html" target="_blank"
+      ><img class="rob" src="assets/robot.png" alt="chatbot"
+    /></a>
+  </div>
+
+  <hr />
+
+  <div class="body">
+    <h1>
+      Click on the robot to go to <strong class="reg"> Regular Chatbot</strong>
+    </h1>
+
+    <a href="http://18.185.47.218/regularchatbotIndex.html" target="_blank"
+      ><img class="rob2" src="assets/Chatbot.jpg" alt="chatbot"
+    /></a>
+  </div>
 </div>
-
-<hr />
-
-<div class="body">
-  <h1>
-    Click on the robot to go to <strong class="reg"> Regular Chatbot</strong>
-  </h1>
-
-  <a href="http://18.185.47.218/regularchatbotIndex.html" target="_blank"
-    ><img src="assets/Chatbot.jpg" alt="chatbot"
-  /></a>
-</div>
-
 <app-issue></app-issue>

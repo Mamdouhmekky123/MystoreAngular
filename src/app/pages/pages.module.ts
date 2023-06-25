@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { ProductsModule } from "../products/products.module";
 import { SearchbyimageComponent } from './components/searchbyimage/searchbyimage.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [AboutComponent, HomeComponent, CarouselComponent, SearchbyimageComponent, AdminComponent],
@@ -21,7 +22,8 @@ import { AdminComponent } from './components/admin/admin.component';
         NgbModule,
         CommentsModule,
         ProductsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule
     ]
 })
 export class PagesModule {}

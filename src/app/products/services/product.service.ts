@@ -13,6 +13,7 @@ export class ProductService implements OnInit {
   productId: any = '';
   rating: number = 0;
   disable: boolean = false;
+  userId: string = '';
 
   ngOnInit(): void {
     this.getRandomUserId();
@@ -65,11 +66,11 @@ export class ProductService implements OnInit {
     );
   }
 
-  getRecommendedUserProducts(user: string) {
+  getRecommendedUserProducts() {
     return this.http.get(
       'http://18.159.111.193/api/Product/recommendByUid/' +
-        user +
-        '?PageNumber=2&PageSize=6&FieldsToExclude=Features'
+        'AM8YFWHCXNJS3' +
+        '?PageNumber=1&PageSize=6&FieldsToExclude=Features'
     );
   }
   getRandomUserId(): string {

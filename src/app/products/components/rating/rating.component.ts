@@ -34,6 +34,7 @@ export class RatingComponent implements OnInit {
       })
     );
     this.isRatingSubmitted = true;
+    location.reload();
   }
 
   // @Input() productId!: number;
@@ -70,6 +71,9 @@ export class RatingComponent implements OnInit {
   //   this.isRatingSubmitted = false;
   //   localStorage.removeItem(`productRating_${this.productId}`);
   // }
+  refreshPage() {
+    location.reload();
+  }
   loggedin() {
     return localStorage.getItem('login');
   }

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-
+  
+  loggedin() {
+    return localStorage.getItem('login');
+  }
 }
