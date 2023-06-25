@@ -16,7 +16,7 @@ export class ProductService implements OnInit {
   userId: string = '';
 
   ngOnInit(): void {
-    this.getRandomUserId();
+    this.userId = this.getRandomUserId();
   }
   getAllProducts() {
     return this.http.get(
@@ -67,25 +67,16 @@ export class ProductService implements OnInit {
   }
 
   getRecommendedUserProducts() {
+    const values: string[] = ['2', '3', '4'];
+    const randomIndex: number = Math.floor(Math.random() * values.length);
     return this.http.get(
-      'http://18.159.111.193/api/Product/recommendByUid/' +
-        'AM8YFWHCXNJS3' +
-        '?PageNumber=1&PageSize=6&FieldsToExclude=Features'
+      'http://18.159.111.193/api/Product/recommendByUid/AM8YFWHCXNJS3?PageNumber=' +
+        values[randomIndex] +
+        '&PageSize=6&FieldsToExclude=Features'
     );
   }
   getRandomUserId(): string {
-    const userIds: string[] = [
-      'A2KSSY17EVL3OX',
-      'AM8YFWHCXNJS3',
-      'A3PBRY694E6BHV',
-      'A3C53H99BODHCV',
-      'A1NTLY4K6GD1WX',
-      'AI3ZL8GDSX3G8',
-      'A47RW7T0MFHSX',
-      'A2E5L8WZYMFGZ4',
-      'APJ5LNYEUXMEM',
-      'A3H7XT5I2XIGLL',
-    ];
+    const userIds: string[] = ['2', '3', '4'];
 
     const randomIndex = Math.floor(Math.random() * userIds.length);
     const randomUserId = userIds[randomIndex];
@@ -95,18 +86,7 @@ export class ProductService implements OnInit {
 
     // if all user IDs have been selected, reset the array
     if (userIds.length === 0) {
-      userIds.push(
-        'A2KSSY17EVL3OX',
-        'AM8YFWHCXNJS3',
-        'A3PBRY694E6BHV',
-        'A3C53H99BODHCV',
-        'A1NTLY4K6GD1WX',
-        'AI3ZL8GDSX3G8',
-        'A47RW7T0MFHSX',
-        'A2E5L8WZYMFGZ4',
-        'APJ5LNYEUXMEM',
-        'A3H7XT5I2XIGLL'
-      );
+      userIds.push('2', '3', '4');
     }
 
     return randomUserId;
